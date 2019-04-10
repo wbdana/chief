@@ -1,4 +1,5 @@
-import * as React from "react";
+import * as React from 'react';
+import './Hello.css';
 
 export interface Props {
   name: string;
@@ -14,7 +15,7 @@ class Hello extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            currentEnthusiasm: props.enthusiasmLevel || 1
+            currentEnthusiasm: props.enthusiasmLevel || 1,
         };
     }
 
