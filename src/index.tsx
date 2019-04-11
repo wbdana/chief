@@ -7,10 +7,10 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { enthusiasm } from './reducers/index';
 import { EnthusiasmAction } from './actions/index';
-import { StoreState } from './types/index';
+import { IStoreState } from './types/index';
 import { Provider } from 'react-redux';
 
-const store = createStore<StoreState, EnthusiasmAction, any, any>(enthusiasm, {
+const store = createStore<IStoreState, EnthusiasmAction, any, any>(enthusiasm, {
   enthusiasmLevel: 1,
   languageName: 'TypeScript',
 });
