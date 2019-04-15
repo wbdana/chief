@@ -1,7 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Hello from './containers/Hello';
-import './index.css';
+// import Hello from './containers/Hello';
+// import './index.css';
+
+import LoginForm from './components/LoginForm';
 import registerServiceWorker from './registerServiceWorker';
 
 import { createStore } from 'redux';
@@ -17,7 +19,7 @@ const store = createStore<IStoreState, EnthusiasmAction, any, any>(enthusiasm, {
 
 ReactDOM.render(
   <Provider store={store}>
-    <Hello />
+    <LoginForm />
   </Provider>,
   document.getElementById('root') as HTMLElement
 );
