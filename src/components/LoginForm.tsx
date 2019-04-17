@@ -9,34 +9,21 @@ interface IState {
 }
 
 class LoginForm extends React.Component<IProps, IState> {
-    
-    loginWithGitHub = () => {
-        console.log('login');
-        const options = {
-            "method": "GET",
-            "headers": {
-              "content-type": "application/json",
-              "accept": "application/json"
-            }
-        };
-        fetch('http://localhost:8000/records/', options)
-            .then(resp => resp.json())
-            .then(json => console.log(json));
-    }
 
-    loginInNewWindow = () => {
-        const options = {
-            "method": "GET",
-            "headers": {
-              "content-type": "application/json",
-              "accept": "application/json"
-            },
-            // "params": {
-            //     "client_id": "7d68b23c2a11ef6436b6",
-            //     "scope": "repo gist",
-            //     "response_type": "code",
-            // }
-        };
+    loginWithGithub = () => {
+        console.log('login with github');
+        // const options = {
+        //     "method": "GET",
+        //     "headers": {
+        //       "content-type": "application/json",
+        //       "accept": "application/json"
+        //     },
+        //     // "params": {
+        //     //     "client_id": "7d68b23c2a11ef6436b6",
+        //     //     "scope": "repo gist",
+        //     //     "response_type": "code",
+        //     // }
+        // };
         // const newWindow = window.open('https://github.com/login/oauth/authorize');
         // console.log(newWindow);
 
@@ -56,18 +43,15 @@ class LoginForm extends React.Component<IProps, IState> {
 
 
         // const newWindow = window.open("http://localhost:8000/auth/login/github");
-        console.log(newWindow);
+
+
 
     }
 
     render() {
         return (
             <div className="login-form">
-                {/* <button className="btn btn__login btn__login-github" onClick={this.loginWithGitHub}>
-                    Login with GitHub
-                </button> */}
-                <br />
-                <button className="btn btn__login btn__login-github" onClick={this.loginInNewWindow}>
+                <button className="btn btn__login btn__login-github" onClick={this.loginWithGithub}>
                     Login with GitHub in new window
                 </button>
             </div>

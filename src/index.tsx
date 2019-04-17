@@ -6,11 +6,15 @@ import * as ReactDOM from 'react-dom';
 import LoginForm from './components/LoginForm';
 import registerServiceWorker from './registerServiceWorker';
 
-import { createStore } from 'redux';
+import { createBrowserHistory } from 'history';
+
+import { applyMiddleware, compose, createStore } from 'redux';
 import { enthusiasm } from './reducers/index';
 import { EnthusiasmAction } from './actions/index';
 import { IStoreState } from './types/index';
 import { Provider } from 'react-redux';
+
+export const history = createBrowserHistory();
 
 const store = createStore<IStoreState, EnthusiasmAction, any, any>(enthusiasm, {
   enthusiasmLevel: 1,
