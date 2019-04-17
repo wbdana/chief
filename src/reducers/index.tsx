@@ -19,6 +19,8 @@ export function enthusiasm(state: IStoreState, action: EnthusiasmAction): IStore
         default:
             return state;
     };
+
+    return state;
 }
 
 const rootReducer = (history: any) => combineReducers({
