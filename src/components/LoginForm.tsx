@@ -45,7 +45,7 @@ class LoginForm extends React.Component<IProps, IState> {
         // const newWindow = window.open("http://localhost:8000/auth/login/github");
 
 
-
+        window.location.href = "https://github.com/login/oauth/authorize?scope=repo%20gist&client_id=7d68b23c2a11ef6436b6";
     }
 
     render() {

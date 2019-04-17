@@ -7,6 +7,7 @@ import { ConnectedRouter } from 'connected-react-router';
 // import './index.css';
 
 import LoginForm from './components/LoginForm';
+import Callback from './components/Callback';
 import registerServiceWorker from './registerServiceWorker';
 
 // import { enthusiasm } from './reducers/index';
@@ -36,7 +37,7 @@ ReactDOM.render(
       <Switch>
       
         <Route exact path="/" render={() => (<LoginForm />)} />
-      
+        <Route path="/callback" render={() => (<Callback />)} />
 
       </Switch>
     </ConnectedRouter>
