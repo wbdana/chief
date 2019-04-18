@@ -6,6 +6,9 @@ export interface IProps {
 
 interface IState {
     accessCode: string;
+    authorizationToken: string;
+    scopes: [] | string;
+    tokenType: string;
 }
 
 class Callback extends React.Component<IProps, IState> {
@@ -14,6 +17,9 @@ class Callback extends React.Component<IProps, IState> {
 
         this.state = {
             accessCode: "",
+            authorizationToken: "",
+            scopes: "",
+            tokenType: "",
         };
     }
 
@@ -28,6 +34,21 @@ class Callback extends React.Component<IProps, IState> {
         return window.location.href.split("code=")[1];
     }
 
+    getValue = (keyValueString: string) => (keyValueString.split("=")[1])
+
+    parseResponse = (data: string) => {
+        // data.split("&")[0].split("=")
+        const splitData = data.split("&");
+        const authorizationToken = this.getValue(splitData[0]);
+        const scopes = this.getValue(splitData[1]);
+        const tokenType = this.getValue(splitData[2]);
+        this.setState({
+            authorizationToken,
+            scopes,
+            tokenType,
+        });
+    }
+
     postAccessCode = () => {
         // This method POSTs the access_code to back end at /auth/convert_token
         const options = {
@@ -38,6 +59,7 @@ class Callback extends React.Component<IProps, IState> {
             },
             "body": JSON.stringify({
                 code: this.getAccessCode(),
+                state: "This State is a Test State",
             }),
         };
 
@@ -45,7 +67,9 @@ class Callback extends React.Component<IProps, IState> {
         //     .then(resp => console.log(resp));
 
         fetch("http://localhost:8000/auth/convert_token/", options)
-            .then(resp => console.log(resp));
+            .then(resp => resp.json())
+            // .then(json => console.log(json));
+            .then(json => this.parseResponse(json.data));
     }
 
     render() {
@@ -54,6 +78,10 @@ class Callback extends React.Component<IProps, IState> {
                 We've got a code! It is: {this.getAccessCode()}
                 <br/><br/>
                 <button onClick={this.postAccessCode}>POST access_code</button>
+                <br/><br/>
+                authorizationToken:  {this.state.authorizationToken}
+                scopes:  {this.state.scopes}
+                tokenType:  {this.state.tokenType}
             </div>
         )
     }
