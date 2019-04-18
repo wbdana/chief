@@ -80,7 +80,9 @@ class Callback extends React.Component<IProps, IState> {
                 <button onClick={this.postAccessCode}>POST access_code</button>
                 <br/><br/>
                 authorizationToken:  {this.state.authorizationToken}
+                <br/>
                 scopes:  {this.state.scopes}
+                <br/>
                 tokenType:  {this.state.tokenType}
             </div>
         )
