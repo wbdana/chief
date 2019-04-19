@@ -31,7 +31,22 @@ class Callback extends React.Component<IProps, IState> {
     }
 
     getAccessCode = () => {
+        console.log(this.props);
         return window.location.href.split("code=")[1];
+    }
+
+    getCurrentUser = () => {
+        const options = {
+            "method": "GET",
+            "headers": {
+                "Authorization": `token ${this.state.authorizationToken}`,
+                "content-type": "application/json",
+                "accept": "application/json",
+            },
+        };
+        fetch("https://api.github.com/user", options)
+            .then(resp => resp.json())
+            .then(json => console.log(json));
     }
 
     getValue = (keyValueString: string) => (keyValueString.split("=")[1])
@@ -72,6 +87,15 @@ class Callback extends React.Component<IProps, IState> {
             .then(json => this.parseResponse(json.data));
     }
 
+    renderGetSelfButton = () => {
+        console.log("this.state.authorizationToken: ", this.state.authorizationToken);
+        return this.state.authorizationToken !== "" ?
+            (
+                <button onClick={this.getCurrentUser}>Get Self</button>
+            ) :
+            null;
+    }
+
     render() {
         return (
             <div>
@@ -84,6 +108,9 @@ class Callback extends React.Component<IProps, IState> {
                 scopes:  {this.state.scopes}
                 <br/>
                 tokenType:  {this.state.tokenType}
+                <br/><br/>
+
+                {this.renderGetSelfButton()}
             </div>
         )
     }
