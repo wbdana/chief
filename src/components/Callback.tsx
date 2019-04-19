@@ -36,6 +36,8 @@ class Callback extends React.Component<IProps, IState> {
     }
 
     getCurrentUser = () => {
+        // TODO This method should go through the back end
+
         const options = {
             "method": "GET",
             "headers": {
@@ -44,7 +46,13 @@ class Callback extends React.Component<IProps, IState> {
                 "accept": "application/json",
             },
         };
-        fetch("https://api.github.com/user", options)
+
+        // fetch("https://api.github.com/user", options)
+        //     .then(resp => resp.json())
+        //     .then(json => console.log(json));
+
+        // TODO API_URL should be a global variable or something
+        fetch("http://localhost:8000/auth/get_github_self/", options)
             .then(resp => resp.json())
             .then(json => console.log(json));
     }
