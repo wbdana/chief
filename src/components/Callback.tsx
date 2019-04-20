@@ -6,8 +6,8 @@ export interface IProps {
 
 interface IState {
     accessCode: string;
-    authorizationToken: string;
-    scopes: [] | string;
+    accessToken: string;
+    scope: [] | string;
     tokenType: string;
 }
 
@@ -17,21 +17,19 @@ class Callback extends React.Component<IProps, IState> {
 
         this.state = {
             accessCode: "",
-            authorizationToken: "",
-            scopes: "",
+            accessToken: "",
+            scope: "",
             tokenType: "",
         };
     }
 
     componentDidMount() {
-        console.log('callback! code is:' + window.location.href);
         this.setState({
             accessCode: this.getAccessCode(),
         })
     }
 
     getAccessCode = () => {
-        console.log(this.props);
         return window.location.href.split("code=")[1];
     }
 
@@ -41,12 +39,14 @@ class Callback extends React.Component<IProps, IState> {
         const options = {
             "method": "GET",
             "headers": {
-                "Authorization": `token ${this.state.authorizationToken}`,
+                "Authorization": `token ${this.state.accessToken}`,
                 "content-type": "application/json",
                 "accept": "application/json",
             },
         };
 
+
+        console.log(options);
         // fetch("https://api.github.com/user", options)
         //     .then(resp => resp.json())
         //     .then(json => console.log(json));
@@ -54,23 +54,24 @@ class Callback extends React.Component<IProps, IState> {
         // TODO API_URL should be a global variable or something
         fetch("http://localhost:8000/auth/get_github_self/", options)
             .then(resp => resp.json())
-            .then(json => console.log(json));
+            // .then(json => json.data.json())
+            .then(data => console.log(data));
     }
 
-    getValue = (keyValueString: string) => (keyValueString.split("=")[1])
+    // getValue = (keyValueString: string) => (keyValueString.split("=")[1]);
 
-    parseResponse = (data: string) => {
-        // data.split("&")[0].split("=")
-        const splitData = data.split("&");
-        const authorizationToken = this.getValue(splitData[0]);
-        const scopes = this.getValue(splitData[1]);
-        const tokenType = this.getValue(splitData[2]);
-        this.setState({
-            authorizationToken,
-            scopes,
-            tokenType,
-        });
-    }
+    // parseResponse = (data: string) => {
+    //     // data.split("&")[0].split("=")
+    //     const splitData = data.split("&");
+    //     const accessToken = this.getValue(splitData[0]);
+    //     const scopes = this.getValue(splitData[1]);
+    //     const tokenType = this.getValue(splitData[2]);
+    //     this.setState({
+    //         accessToken,
+    //         scopes,
+    //         tokenType,
+    //     });
+    // }
 
     postAccessCode = () => {
         // This method POSTs the access_code to back end at /auth/convert_token
@@ -92,16 +93,44 @@ class Callback extends React.Component<IProps, IState> {
         fetch("http://localhost:8000/auth/convert_token/", options)
             .then(resp => resp.json())
             // .then(json => console.log(json));
-            .then(json => this.parseResponse(json.data));
+            // .then(json => this.parseResponse(json.data));
+            // .then(json => console.log(json));
+            // .then(json => this.setState({
+            //     accessToken: json.data.access_token,
+            //     scopes: json.data.
+            // }))
+            .then(json => {
+                console.log("json.data: ", json.data);
+                // const [access_token, scopes, token_type] = json.data;
+                // console.log(access_token, scopes, token_type);
+                const access_token = json.data.access_token;
+                const scope = json.data.scope;
+                const token_type = json.data.token_type;
+                this.setState({
+                    accessToken: access_token,
+                    scope,
+                    tokenType: token_type,
+                });
+            });
     }
 
     renderGetSelfButton = () => {
-        console.log("this.state.authorizationToken: ", this.state.authorizationToken);
-        return this.state.authorizationToken !== "" ?
-            (
-                <button onClick={this.getCurrentUser}>Get Self</button>
-            ) :
-            null;
+        console.log("this.state: ", this.state);
+        // return this.state.accessToken !== "" ?
+        //     (
+        //         <button onClick={this.getCurrentUser}>Get Self</button>
+        //     ) :
+        //     null;
+        if (this.state.accessToken === "") {
+            return null;
+        }
+        return (
+            <button
+                onClick={this.getCurrentUser}
+            >
+                Get Self
+            </button>
+        )
     }
 
     render() {
@@ -111,9 +140,9 @@ class Callback extends React.Component<IProps, IState> {
                 <br/><br/>
                 <button onClick={this.postAccessCode}>POST access_code</button>
                 <br/><br/>
-                authorizationToken:  {this.state.authorizationToken}
+                accessToken:  {this.state.accessToken}
                 <br/>
-                scopes:  {this.state.scopes}
+                scopes:  {this.state.scope}
                 <br/>
                 tokenType:  {this.state.tokenType}
                 <br/><br/>
