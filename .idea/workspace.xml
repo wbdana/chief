@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2e1ef7c-32d3-4a28-adc2-c078a5e7859f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/Callback.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Callback.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,6 +33,11 @@
               <item name="chief" type="b2602c69:ProjectViewProjectNode" />
               <item name="chief" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="chief" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chief" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -41,6 +46,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -82,11 +88,14 @@
       <updated>1555678484552</updated>
       <workItem from="1555678487190" duration="14000" />
       <workItem from="1555678509362" duration="652000" />
+      <workItem from="1555944383524" duration="991000" />
+      <workItem from="1555945645563" duration="599000" />
+      <workItem from="1555947393142" duration="615000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="666000" />
+    <option name="totallyTimeSpent" value="2871000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-8" width="1924" height="1054" extended-state="6" />
