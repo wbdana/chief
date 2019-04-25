@@ -9,6 +9,7 @@ interface IState {
     accessToken: string;
     scope: [] | string;
     tokenType: string;
+    username: string;
 }
 
 class Callback extends React.Component<IProps, IState> {
@@ -20,6 +21,7 @@ class Callback extends React.Component<IProps, IState> {
             accessToken: "",
             scope: "",
             tokenType: "",
+            username: "",
         };
     }
 
@@ -46,7 +48,12 @@ class Callback extends React.Component<IProps, IState> {
         // TODO API_URL should be a global variable or something
         fetch("http://localhost:8000/auth/get_github_self/", options)
             .then(resp => resp.json())
-            .then(data => console.log(data));
+            .then(data => {
+                console.log(data);
+                this.setState({
+                    username: data.data.login,
+                });
+            });
     }
 
     postAccessCode = () => {
@@ -103,6 +110,7 @@ class Callback extends React.Component<IProps, IState> {
                 <br/>
                 tokenType:  {this.state.tokenType}
                 <br/><br/>
+                username:  {this.state.username}
 
                 {this.renderGetSelfButton()}
             </div>
