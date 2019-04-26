@@ -2,8 +2,15 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
+import { Route, Switch } from 'react-router';
+// import { Route } from 'react-router';
 
-import App from './App';
+// Components
+import Callback from './components/Callback';
+import LoginForm from './components/LoginForm';
+import Navbar from './components/Navbar';
+
+// import App from './App';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -17,7 +24,12 @@ const store = configureStore({
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      {/* <App /> */}
+      <Route path="/" component={Navbar} />
+      <Switch>
+        <Route exact path="/" component={LoginForm} />
+        <Route path="/callback" component={Callback} />
+      </Switch>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root') as HTMLElement
