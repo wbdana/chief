@@ -10,7 +10,9 @@ function Navbar() {
             "About",
         ];
 
-        return names.map((name, index) => (<NavbarItem name={name} key={index} />));
+        return names.map((name, index) => (
+            <NavbarItem name={name} key={index} />
+        ));
     }
 
     return (
