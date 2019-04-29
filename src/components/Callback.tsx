@@ -66,7 +66,7 @@ class Callback extends React.Component<IProps, IState> {
             },
             "body": JSON.stringify({
                 code: this.getAccessCode(),
-                state: "This State is a Test State",
+                state: "This State is a Test State", // TODO This should be randomized
             }),
         };
 

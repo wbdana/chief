@@ -1,23 +1,37 @@
 import * as constants from '../constants';
 
-export interface IncrementEnthusiasm {
+export interface IIncrementEnthusiasm {
     type: constants.INCREMENT_ENTHUSIASM;
 }
 
-export interface DecrementEnthusiasm {
+export interface IDecrementEnthusiasm {
     type: constants.DECREMENT_ENTHUSIASM;
 }
 
-export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm;
+export interface ISetUsername {
+    type: constants.SET_USERNAME;
+    payload: string;
+}
 
-export function incrementEnthusiasm(): IncrementEnthusiasm {
+export type EnthusiasmAction = IIncrementEnthusiasm | IDecrementEnthusiasm;
+
+export type AuthAction = ISetUsername;
+
+export function incrementEnthusiasm(): IIncrementEnthusiasm {
     return {
         type: constants.INCREMENT_ENTHUSIASM,
     }
 }
 
-export function decrementEnthusiasm(): DecrementEnthusiasm {
+export function decrementEnthusiasm(): IDecrementEnthusiasm {
     return {
         type: constants.DECREMENT_ENTHUSIASM,
+    }
+}
+
+export function setUsername(payload: string): ISetUsername {
+    return {
+        type: constants.SET_USERNAME,
+        payload,
     }
 }

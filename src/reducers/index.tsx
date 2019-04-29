@@ -7,6 +7,9 @@ import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/index';
 export function enthusiasm(state = {
     languageName: "TypeScript",
     enthusiasmLevel: 1,
+    user: {
+        username: "",
+    },
 }, action: EnthusiasmAction): IStoreState {
     switch (action.type) {
         case INCREMENT_ENTHUSIASM:
