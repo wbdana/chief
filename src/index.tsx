@@ -20,10 +20,9 @@ import registerServiceWorker from './registerServiceWorker';
 import configureStore, { history } from './store';
 
 const store = configureStore({
-  enthusiasmLevel: 1,
-  languageName: 'TypeScript',
   auth: {
     username: '',
+    profilePictureUrl: '',
   },
 });
 

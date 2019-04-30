@@ -57,7 +57,7 @@ class Callback extends React.Component<IProps, IState> {
         fetch("http://localhost:8000/auth/get_github_self/", options)
             .then(resp => resp.json())
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 // this.setState({
                 //     username: data.data.login,
                 // });

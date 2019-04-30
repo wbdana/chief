@@ -1,9 +1,8 @@
 export interface IAuthState {
     username: string;
+    profilePictureUrl: string;
 }
 
 export interface IStoreState {
-    languageName: string;
-    enthusiasmLevel: number;
     auth: IAuthState;
 }
