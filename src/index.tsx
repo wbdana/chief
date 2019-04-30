@@ -29,6 +29,7 @@ const store = configureStore({
 
 ReactDOM.render(
   <Provider store={store}>
+    {/* TODO Move all this stuff to App */}
     <ConnectedRouter history={history}>
       {/* <App /> */}
       <Route path="/" component={Navbar} />
