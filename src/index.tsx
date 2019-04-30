@@ -22,7 +22,7 @@ import configureStore, { history } from './store';
 const store = configureStore({
   enthusiasmLevel: 1,
   languageName: 'TypeScript',
-  user: {
+  auth: {
     username: '',
   },
 });

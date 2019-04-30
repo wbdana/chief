@@ -1,6 +1,8 @@
 import * as React from 'react';
+import { IAuthState } from '../types';
 
 export interface IProps {
+    auth: IAuthState;
     setUsername: (payload: string) => any;
 }
 
@@ -26,8 +28,7 @@ class Callback extends React.Component<IProps, IState> {
     }
 
     componentDidMount() {
-        console.log(this.props);
-        console.log(this.props.setUsername);
+        console.log("Callback props", this.props);
         // this.setState({
         //     accessCode: this.getAccessCode(),
         // });
@@ -56,10 +57,11 @@ class Callback extends React.Component<IProps, IState> {
         fetch("http://localhost:8000/auth/get_github_self/", options)
             .then(resp => resp.json())
             .then(data => {
-                console.log(data);
-                this.setState({
-                    username: data.data.login,
-                });
+                // console.log(data);
+                // this.setState({
+                //     username: data.data.login,
+                // });
+                this.props.setUsername(data.data.login);
             });
     }
 
@@ -119,7 +121,7 @@ class Callback extends React.Component<IProps, IState> {
                 <br/>
                 tokenType:  {this.state.tokenType}
                 <br/><br/>
-                username:  {this.state.username}
+                username:  {this.props.auth.username}
 
                 {this.renderGetSelfButton()}
             </div>

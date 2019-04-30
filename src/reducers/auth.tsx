@@ -1,12 +1,12 @@
 import { AuthAction } from '../actions/auth';
-import { IUserState } from '../types';
+import { IAuthState } from '../types';
 import {
     SET_USERNAME,
 } from '../constants/auth';
 
 export function authReducer(state = {
     username: "",
-}, action: AuthAction): IUserState {
+}, action: AuthAction): IAuthState {
     switch(action.type) {
         case SET_USERNAME:
             return {

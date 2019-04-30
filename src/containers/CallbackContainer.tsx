@@ -1,12 +1,14 @@
 import Callback from '../components/Callback';
 import * as actions from '../actions/auth';
-import { IUserState } from '../types/index';
+// import { IAuthState } from '../types/index';
+import { IStoreState } from '../types';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-export function mapStateToProps({ username }: IUserState) {
+// export function mapStateToProps({ username }: IAuthState) {
+export function mapStateToProps({ auth }: IStoreState) {
     return {
-        username: username,
+        auth: auth,
     };
 }
 
