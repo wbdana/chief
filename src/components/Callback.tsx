@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { IAuthState } from '../types';
+import { IProfileInfoPayload } from '../actions/auth';
 
 export interface IProps {
     auth: IAuthState;
     setUsername: (payload: string) => any;
+    setProfilePictureUrl: (payload: string) => any;
+    setProfileInfo: (payload: IProfileInfoPayload) => any;
 }
 
 interface IState {
@@ -61,7 +64,11 @@ class Callback extends React.Component<IProps, IState> {
                 // this.setState({
                 //     username: data.data.login,
                 // });
-                this.props.setUsername(data.data.login);
+                // this.props.setUsername(data.data.login);
+                this.props.setProfileInfo({
+                    login: data.data.login,
+                    avatar_url: data.data.avatar_url,
+                });
             });
     }
 

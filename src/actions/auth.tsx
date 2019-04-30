@@ -12,7 +12,7 @@ export interface ISetProfilePictureUrl {
 
 export interface IProfileInfoPayload {
     login: string;
-    profile_picture_url: string;
+    avatar_url: string;
 }
 
 export interface ISetProfileInfo {

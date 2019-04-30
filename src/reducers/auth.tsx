@@ -25,7 +25,7 @@ export function authReducer(state = {
             return {
                 ...state,
                 username: action.payload.login,
-                profilePictureUrl: action.payload.profile_picture_url,
+                profilePictureUrl: action.payload.avatar_url,
             };
         default:
             return state;
