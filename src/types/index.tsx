@@ -5,4 +5,5 @@ export interface IAuthState {
 
 export interface IStoreState {
     auth: IAuthState;
+    router: any;
 }

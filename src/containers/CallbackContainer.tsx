@@ -6,9 +6,10 @@ import { IProfileInfoPayload } from '../actions/auth';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-export function mapStateToProps({ auth }: IStoreState) {
+export function mapStateToProps({ auth, router }: IStoreState) {
     return {
         auth: auth,
+        router: router,
     };
 }
 
@@ -17,6 +18,7 @@ export function mapDispatchToProps(dispatch: Dispatch<actions.AuthAction>) {
         setUsername: (payload: string) => dispatch(actions.setUsername(payload)),
         setProfilePictureUrl: (payload: string) => dispatch(actions.setProfilePictureUrl(payload)),
         setProfileInfo: (payload: IProfileInfoPayload) => dispatch(actions.setProfileInfo(payload)),
+        // redirectHome: () => dispatch(actions.redirectHome()),
     };
 }
 

@@ -10,6 +10,7 @@ import CallbackContainer from './containers/CallbackContainer';
 
 // Components
 // import Callback from './components/Callback';
+import Home from './components/Home';
 import LoginForm from './components/LoginForm';
 import Navbar from './components/Navbar';
 
@@ -35,6 +36,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={LoginForm} />
         <Route path="/callback" component={CallbackContainer} />
+        <Route path="/home" component={Home} />
       </Switch>
     </ConnectedRouter>
   </Provider>,

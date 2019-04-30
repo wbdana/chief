@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { IAuthState } from '../types';
 import { IProfileInfoPayload } from '../actions/auth';
+// import { Redirect } from 'react-router';
 
 export interface IProps {
     auth: IAuthState;
+    history: any;
     setUsername: (payload: string) => any;
     setProfilePictureUrl: (payload: string) => any;
     setProfileInfo: (payload: IProfileInfoPayload) => any;
@@ -68,7 +70,11 @@ class Callback extends React.Component<IProps, IState> {
                 this.props.setProfileInfo({
                     login: data.data.login,
                     avatar_url: data.data.avatar_url,
-                });
+                })
+            })
+            .then(() => {
+                console.log("Callback props:", this.props);
+                this.props.history.push("/home");
             });
     }
 
@@ -114,6 +120,15 @@ class Callback extends React.Component<IProps, IState> {
             </button>
         )
     }
+
+    // renderRedirect = () => {
+    //     if (!this.state.redirect) {
+    //         return null;
+    //     }
+    //     return (
+
+    //     );
+    // }
 
     render() {
         return (
