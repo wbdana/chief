@@ -3,6 +3,7 @@ import { IAuthState } from '../types';
 import {
     SET_USERNAME,
     SET_PROFILE_PICTURE_URL,
+    SET_PROFILE_INFO,
 } from '../constants/auth';
 
 export function authReducer(state = {
@@ -19,6 +20,12 @@ export function authReducer(state = {
             return {
                 ...state,
                 profilePictureUrl: action.payload,
+            };
+        case SET_PROFILE_INFO:
+            return {
+                ...state,
+                username: action.payload.login,
+                profilePictureUrl: action.payload.profile_picture_url,
             };
         default:
             return state;

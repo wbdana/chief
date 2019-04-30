@@ -10,7 +10,17 @@ export interface ISetProfilePictureUrl {
     payload: string;
 }
 
-export type AuthAction = ISetUsername | ISetProfilePictureUrl;
+export interface IProfileInfoPayload {
+    login: string;
+    profile_picture_url: string;
+}
+
+export interface ISetProfileInfo {
+    type: authConstants.SET_PROFILE_INFO;
+    payload: IProfileInfoPayload;
+}
+
+export type AuthAction = ISetUsername | ISetProfilePictureUrl | ISetProfileInfo;
 
 export function setUsername(payload: string): ISetUsername {
     return {
@@ -24,4 +34,11 @@ export function setProfilePictureUrl(payload: string): ISetProfilePictureUrl {
         type: authConstants.SET_PROFILE_PICTURE_URL,
         payload,
     };
+}
+
+export function setProfileInfo(profileInfoPayload: IProfileInfoPayload): ISetProfileInfo {
+    return {
+        type: authConstants.SET_PROFILE_INFO,
+        payload: profileInfoPayload,
+    }
 }
