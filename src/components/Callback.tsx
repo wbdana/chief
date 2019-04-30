@@ -132,21 +132,22 @@ class Callback extends React.Component<IProps, IState> {
 
     render() {
         return (
-            <div>
-                We've got a code! It is: {this.getAccessCode()}
-                <br/><br/>
-                <button onClick={this.postAccessCode}>POST access_code</button>
-                <br/><br/>
-                accessToken:  {this.state.accessToken}
-                <br/>
-                scopes:  {this.state.scope}
-                <br/>
-                tokenType:  {this.state.tokenType}
-                <br/><br/>
-                username:  {this.props.auth.username}
+            <div />
+            // <div>
+            //     We've got a code! It is: {this.getAccessCode()}
+            //     <br/><br/>
+            //     <button onClick={this.postAccessCode}>POST access_code</button>
+            //     <br/><br/>
+            //     accessToken:  {this.state.accessToken}
+            //     <br/>
+            //     scopes:  {this.state.scope}
+            //     <br/>
+            //     tokenType:  {this.state.tokenType}
+            //     <br/><br/>
+            //     username:  {this.props.auth.username}
 
-                {this.renderGetSelfButton()}
-            </div>
+            //     {this.renderGetSelfButton()}
+            // </div>
         )
     }
 };

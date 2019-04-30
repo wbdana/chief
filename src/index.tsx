@@ -7,10 +7,11 @@ import { Route, Switch } from 'react-router';
 
 // Containers
 import CallbackContainer from './containers/CallbackContainer';
+import HomeContainer from './containers/HomeContainer';
 
 // Components
 // import Callback from './components/Callback';
-import Home from './components/Home';
+// import Home from './components/Home';
 import LoginForm from './components/LoginForm';
 import Navbar from './components/Navbar';
 
@@ -36,7 +37,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={LoginForm} />
         <Route path="/callback" component={CallbackContainer} />
-        <Route path="/home" component={Home} />
+        <Route path="/home" component={HomeContainer} />
       </Switch>
     </ConnectedRouter>
   </Provider>,
