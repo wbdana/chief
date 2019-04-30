@@ -1,5 +1,5 @@
 import Callback from '../components/Callback';
-import * as actions from '../actions';
+import * as actions from '../actions/auth';
 import { IUserState } from '../types/index';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';

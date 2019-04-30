@@ -1,5 +1,5 @@
 // import * as constants from '../constants';
-import * as authConstants from '../constants/auth';
+// import * as authConstants from '../constants/auth';
 
 // export interface IIncrementEnthusiasm {
 //     type: constants.INCREMENT_ENTHUSIASM;
@@ -9,14 +9,14 @@ import * as authConstants from '../constants/auth';
 //     type: constants.DECREMENT_ENTHUSIASM;
 // }
 
-export interface ISetUsername {
-    type: authConstants.SET_USERNAME;
-    payload: string;
-}
+// export interface ISetUsername {
+//     type: authConstants.SET_USERNAME;
+//     payload: string;
+// }
 
 // export type EnthusiasmAction = IIncrementEnthusiasm | IDecrementEnthusiasm;
 
-export type AuthAction = ISetUsername;
+// export type AuthAction = ISetUsername;
 
 // export function incrementEnthusiasm(): IIncrementEnthusiasm {
 //     return {
@@ -30,9 +30,9 @@ export type AuthAction = ISetUsername;
 //     }
 // }
 
-export function setUsername(payload: string): ISetUsername {
-    return {
-        type: authConstants.SET_USERNAME,
-        payload,
-    }
-}
+// export function setUsername(payload: string): ISetUsername {
+//     return {
+//         type: authConstants.SET_USERNAME,
+//         payload,
+//     }
+// }
