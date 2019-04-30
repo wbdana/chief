@@ -1,4 +1,3 @@
-// import { AuthAction } from '../actions/auth';
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 
