@@ -1,8 +1,12 @@
-import { EnthusiasmAction } from '../actions';
+import { AuthAction } from '../actions';
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import { IStoreState } from '../types/index';
-import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/index';
+import {
+    // INCREMENT_ENTHUSIASM,
+    // DECREMENT_ENTHUSIASM,
+    SET_USERNAME,
+} from '../constants/index';
 
 export function enthusiasm(state = {
     languageName: "TypeScript",
@@ -10,18 +14,25 @@ export function enthusiasm(state = {
     user: {
         username: "",
     },
-}, action: EnthusiasmAction): IStoreState {
+}, action: AuthAction): IStoreState {
     switch (action.type) {
-        case INCREMENT_ENTHUSIASM:
+        // case INCREMENT_ENTHUSIASM:
+        //     return {
+        //         ...state,
+        //         enthusiasmLevel: state.enthusiasmLevel + 1,
+        //     };
+        // case DECREMENT_ENTHUSIASM:
+        //     return {
+        //         ...state,
+        //         enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1)
+        //     };
+        case SET_USERNAME:
             return {
                 ...state,
-                enthusiasmLevel: state.enthusiasmLevel + 1,
-            };
-        case DECREMENT_ENTHUSIASM:
-            return {
-                ...state,
-                enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1)
-            };
+                user: {
+                    username: action.payload,
+                }
+            }
         default:
             return state;
     };

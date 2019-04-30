@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export interface IProps {
-
+    setUsername: (payload: string) => any;
 }
 
 interface IState {
@@ -26,9 +26,12 @@ class Callback extends React.Component<IProps, IState> {
     }
 
     componentDidMount() {
+        console.log(this.props);
+        console.log(this.props.setUsername);
         this.setState({
             accessCode: this.getAccessCode(),
         })
+        this.props.setUsername("Will")
     }
 
     getAccessCode = () => {

@@ -33,6 +33,7 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "react-test-renderer": "^16.8.6",
+    "redux-devtools-extension": "^2.13.8",
     "typescript": "^3.4.3"
   }
 }

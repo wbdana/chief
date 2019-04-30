@@ -5,8 +5,11 @@ import { ConnectedRouter } from 'connected-react-router';
 import { Route, Switch } from 'react-router';
 // import { Route } from 'react-router';
 
+// Containers
+import CallbackContainer from './containers/CallbackContainer';
+
 // Components
-import Callback from './components/Callback';
+// import Callback from './components/Callback';
 import LoginForm from './components/LoginForm';
 import Navbar from './components/Navbar';
 
@@ -19,6 +22,9 @@ import configureStore, { history } from './store';
 const store = configureStore({
   enthusiasmLevel: 1,
   languageName: 'TypeScript',
+  user: {
+    username: '',
+  },
 });
 
 ReactDOM.render(
@@ -28,7 +34,7 @@ ReactDOM.render(
       <Route path="/" component={Navbar} />
       <Switch>
         <Route exact path="/" component={LoginForm} />
-        <Route path="/callback" component={Callback} />
+        <Route path="/callback" component={CallbackContainer} />
       </Switch>
     </ConnectedRouter>
   </Provider>,
