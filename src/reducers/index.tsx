@@ -2,11 +2,14 @@ import { AuthAction } from '../actions';
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import { IStoreState } from '../types/index';
+// import {
+//     // INCREMENT_ENTHUSIASM,
+//     // DECREMENT_ENTHUSIASM,
+//     SET_USERNAME,
+// } from '../constants/index';
 import {
-    // INCREMENT_ENTHUSIASM,
-    // DECREMENT_ENTHUSIASM,
     SET_USERNAME,
-} from '../constants/index';
+} from '../constants/auth';
 
 export function enthusiasm(state = {
     languageName: "TypeScript",

@@ -39,7 +39,7 @@ ReactDOM.render(
       </Switch>
     </ConnectedRouter>
   </Provider>,
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 );
 
 registerServiceWorker();

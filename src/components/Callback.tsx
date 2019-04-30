@@ -28,10 +28,14 @@ class Callback extends React.Component<IProps, IState> {
     componentDidMount() {
         console.log(this.props);
         console.log(this.props.setUsername);
-        this.setState({
-            accessCode: this.getAccessCode(),
-        })
-        this.props.setUsername("Will")
+        // this.setState({
+        //     accessCode: this.getAccessCode(),
+        // });
+
+        this.postAccessCode();
+
+
+        // this.props.setUsername("Will")
     }
 
     getAccessCode = () => {
@@ -83,6 +87,8 @@ class Callback extends React.Component<IProps, IState> {
                     accessToken: access_token,
                     scope,
                     tokenType: token_type,
+                }, () => {
+                    this.getCurrentUser();
                 });
             });
     }
