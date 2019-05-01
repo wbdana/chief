@@ -33,15 +33,7 @@ class Callback extends React.Component<IProps, IState> {
     }
 
     componentDidMount() {
-        console.log("Callback props", this.props);
-        // this.setState({
-        //     accessCode: this.getAccessCode(),
-        // });
-
         this.postAccessCode();
-
-
-        // this.props.setUsername("Will")
     }
 
     getAccessCode = () => {
@@ -63,15 +55,11 @@ class Callback extends React.Component<IProps, IState> {
             .then(resp => resp.json())
             .then(data => {
                 console.log(data);
-                // this.setState({
-                //     username: data.data.login,
-                // });
-                // this.props.setUsername(data.data.login);
                 this.props.setProfileInfo({
                     username: data.data.login,
                     profilePictureUrl: data.data.avatar_url,
                     reposUrl: data.data.repos_url,
-                })
+                });
             })
             .then(() => {
                 console.log("Callback props:", this.props);
@@ -122,34 +110,10 @@ class Callback extends React.Component<IProps, IState> {
         )
     }
 
-    // renderRedirect = () => {
-    //     if (!this.state.redirect) {
-    //         return null;
-    //     }
-    //     return (
-
-    //     );
-    // }
-
     render() {
         return (
             <div />
-            // <div>
-            //     We've got a code! It is: {this.getAccessCode()}
-            //     <br/><br/>
-            //     <button onClick={this.postAccessCode}>POST access_code</button>
-            //     <br/><br/>
-            //     accessToken:  {this.state.accessToken}
-            //     <br/>
-            //     scopes:  {this.state.scope}
-            //     <br/>
-            //     tokenType:  {this.state.tokenType}
-            //     <br/><br/>
-            //     username:  {this.props.auth.username}
-
-            //     {this.renderGetSelfButton()}
-            // </div>
-        )
+        );
     }
 };
 
