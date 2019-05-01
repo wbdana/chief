@@ -8,16 +8,36 @@ export interface IProps {
     }
 }
 
-function Home(props: IProps) {
-    console.log("Home props:", props);
-    const { username, profilePictureUrl } = props.auth;
+export interface IState {
 
-    return (
-        <div className="home">
-            <p>Welcome, {username}</p>
-            <img src={profilePictureUrl} alt=""/>
-        </div>
-    );
+}
+
+// function Home(props: IProps) {
+class Home extends React.Component<IProps, IState> {
+    // console.log("Home props:", props);
+    // const { username, profilePictureUrl } = props.auth;
+    componentDidMount() {
+        this.getUserRepos();
+    }
+
+    getUserRepos = () => {
+        const options = {
+            method: "GET",
+
+        }
+        console.log(options);
+        return null;
+    }
+
+    render() {
+        const { username, profilePictureUrl } = this.props.auth;
+        return (
+            <div className="home">
+                <p>Welcome, {username}</p>
+                <img src={profilePictureUrl} alt=""/>
+            </div>
+        );
+    }
 }
 
 export default Home;

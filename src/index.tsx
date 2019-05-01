@@ -26,6 +26,7 @@ const store = configureStore({
     username: "",
     profilePictureUrl: "",
     reposUrl: "",
+    accessToken: "",
   },
 });
 

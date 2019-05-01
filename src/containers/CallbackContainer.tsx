@@ -17,6 +17,7 @@ export function mapDispatchToProps(dispatch: Dispatch<actions.AuthAction>) {
     return {
         setUsername: (payload: string) => dispatch(actions.setUsername(payload)),
         setProfilePictureUrl: (payload: string) => dispatch(actions.setProfilePictureUrl(payload)),
+        setAccessToken: (payload: string) => dispatch(actions.setAccessToken(payload)),
         setProfileInfo: (payload: IProfileInfoPayload) => dispatch(actions.setProfileInfo(payload)),
         // redirectHome: () => dispatch(actions.redirectHome()),
     };

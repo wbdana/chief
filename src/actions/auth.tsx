@@ -16,12 +16,17 @@ export interface IProfileInfoPayload {
     reposUrl: string;
 }
 
+export interface ISetAccessToken {
+    type: authConstants.SET_ACCESS_TOKEN;
+    payload: string;
+}
+
 export interface ISetProfileInfo {
     type: authConstants.SET_PROFILE_INFO;
     payload: IProfileInfoPayload;
 }
 
-export type AuthAction = ISetUsername | ISetProfilePictureUrl | ISetProfileInfo;
+export type AuthAction = ISetUsername | ISetProfilePictureUrl | ISetProfileInfo | ISetAccessToken;
 
 export function setUsername(payload: string): ISetUsername {
     return {
@@ -37,9 +42,16 @@ export function setProfilePictureUrl(payload: string): ISetProfilePictureUrl {
     };
 }
 
+export function setAccessToken(accessToken: string): ISetAccessToken {
+    return {
+        type: authConstants.SET_ACCESS_TOKEN,
+        payload: accessToken,
+    };
+}
+
 export function setProfileInfo(profileInfoPayload: IProfileInfoPayload): ISetProfileInfo {
     return {
         type: authConstants.SET_PROFILE_INFO,
         payload: profileInfoPayload,
-    }
+    };
 }

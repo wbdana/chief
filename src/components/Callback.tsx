@@ -8,12 +8,13 @@ export interface IProps {
     history: any;
     setUsername: (payload: string) => any;
     setProfilePictureUrl: (payload: string) => any;
+    setAccessToken: (payload: string) => any;
     setProfileInfo: (payload: IProfileInfoPayload) => any;
 }
 
 interface IState {
     accessCode: string;
-    accessToken: string;
+    accessToken: string;    // TODO This needs to be set in store and saved in API
     scope: [] | string;
     tokenType: string;
     username: string;
@@ -85,15 +86,17 @@ class Callback extends React.Component<IProps, IState> {
             .then(resp => resp.json())
             .then(json => {
                 const access_token = json.data.access_token;
-                const scope = json.data.scope;
-                const token_type = json.data.token_type;
-                this.setState({
-                    accessToken: access_token,
-                    scope,
-                    tokenType: token_type,
-                }, () => {
-                    this.getCurrentUser();
-                });
+                // const scope = json.data.scope;
+                // const token_type = json.data.token_type;
+                // this.setState({
+                //     accessToken: access_token,
+                //     scope,
+                //     tokenType: token_type,
+                // }, () => {
+                //     this.getCurrentUser();
+                // });
+                this.props.setAccessToken(access_token)
+                    .then(() => this.getCurrentUser());
             });
     }
 

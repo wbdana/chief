@@ -4,12 +4,14 @@ import {
     SET_USERNAME,
     SET_PROFILE_PICTURE_URL,
     SET_PROFILE_INFO,
+    SET_ACCESS_TOKEN,
 } from '../constants/auth';
 
 export function authReducer(state = {
     username: "",
     profilePictureUrl: "",
     reposUrl: "",
+    accessToken: "",
 }, action: AuthAction): IAuthState {
     switch(action.type) {
         case SET_USERNAME:
@@ -21,6 +23,11 @@ export function authReducer(state = {
             return {
                 ...state,
                 profilePictureUrl: action.payload,
+            };
+        case SET_ACCESS_TOKEN:
+            return {
+                ...state,
+                accessToken: action.payload,
             };
         case SET_PROFILE_INFO:
             return {
