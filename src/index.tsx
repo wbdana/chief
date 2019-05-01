@@ -23,8 +23,9 @@ import configureStore, { history } from './store';
 
 const store = configureStore({
   auth: {
-    username: '',
-    profilePictureUrl: '',
+    username: "",
+    profilePictureUrl: "",
+    reposUrl: "",
   },
 });
 

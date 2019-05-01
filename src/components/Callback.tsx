@@ -68,8 +68,9 @@ class Callback extends React.Component<IProps, IState> {
                 // });
                 // this.props.setUsername(data.data.login);
                 this.props.setProfileInfo({
-                    login: data.data.login,
-                    avatar_url: data.data.avatar_url,
+                    username: data.data.login,
+                    profilePictureUrl: data.data.avatar_url,
+                    reposUrl: data.data.repos_url,
                 })
             })
             .then(() => {

@@ -9,6 +9,7 @@ import {
 export function authReducer(state = {
     username: "",
     profilePictureUrl: "",
+    reposUrl: "",
 }, action: AuthAction): IAuthState {
     switch(action.type) {
         case SET_USERNAME:
@@ -24,8 +25,9 @@ export function authReducer(state = {
         case SET_PROFILE_INFO:
             return {
                 ...state,
-                username: action.payload.login,
-                profilePictureUrl: action.payload.avatar_url,
+                username: action.payload.username,
+                profilePictureUrl: action.payload.profilePictureUrl,
+                reposUrl: action.payload.reposUrl,
             };
         default:
             return state;

@@ -11,8 +11,9 @@ export interface ISetProfilePictureUrl {
 }
 
 export interface IProfileInfoPayload {
-    login: string;
-    avatar_url: string;
+    username: string;
+    profilePictureUrl: string;
+    reposUrl: string;
 }
 
 export interface ISetProfileInfo {
