@@ -55,3 +55,10 @@ export function setProfileInfo(profileInfoPayload: IProfileInfoPayload): ISetPro
         payload: profileInfoPayload,
     };
 }
+
+export function login(accessToken: string) {
+    return (dispatch: any) => {
+        dispatch(setAccessToken);
+        dispatch()
+    }
+}

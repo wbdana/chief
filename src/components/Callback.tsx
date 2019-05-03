@@ -85,7 +85,7 @@ class Callback extends React.Component<IProps, IState> {
         fetch("http://localhost:8000/auth/convert_token/", options)
             .then(resp => resp.json())
             .then(json => {
-                const access_token = json.data.access_token;
+                const { access_token } = json.data;
                 // const scope = json.data.scope;
                 // const token_type = json.data.token_type;
                 // this.setState({
@@ -95,8 +95,8 @@ class Callback extends React.Component<IProps, IState> {
                 // }, () => {
                 //     this.getCurrentUser();
                 // });
-                this.props.setAccessToken(access_token)
-                    .then(() => this.getCurrentUser());
+                this.props.setAccessToken(access_token);
+                    // .then(() => this.getCurrentUser());
             });
     }
 
