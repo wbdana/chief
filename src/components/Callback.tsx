@@ -100,19 +100,6 @@ class Callback extends React.Component<IProps, IState> {
             });
     }
 
-    renderGetSelfButton = () => {
-        if (this.state.accessToken === "") {
-            return null;
-        }
-        return (
-            <button
-                onClick={this.getCurrentUser}
-            >
-                Get Self
-            </button>
-        )
-    }
-
     render() {
         return (
             <div />

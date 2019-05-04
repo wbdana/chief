@@ -6,6 +6,7 @@ import {
 } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { routerMiddleware } from 'connected-react-router';
+import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 // import { IStoreState } from './types';
 
@@ -18,6 +19,7 @@ export default function configureStore(preloadedState: {}) {
         composeWithDevTools(
             applyMiddleware(
                 routerMiddleware(history),
+                thunk,
             ),
         ),
     );
